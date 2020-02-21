@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1582291127 source:c:\tree\main.cpp
+	"BinaryTree.h"
+
+1582291496 c:\tree\binarytree.h
+	"CircularQueue.h"
+
+1582287338 c:\tree\binarynode.h
+	<cstdio>
+
+1582291357 c:\tree\circularqueue.h
+	"BinaryNode.h"
+	<string>
+
