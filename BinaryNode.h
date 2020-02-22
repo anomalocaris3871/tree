@@ -9,6 +9,7 @@ protected:
     BinaryNode *left;
     BinaryNode *right;
 public:
+
     BinaryNode(int val = 0, BinaryNode *l = nullptr, BinaryNode *r = nullptr)
         : data(val), left(l), right(r) { }
     void setData(int val) {

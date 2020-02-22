@@ -72,9 +72,34 @@ public:
         }
     }
 
-    int getCount() {}
-    int getHeight() {}
-    int getLeafCount() {}
+    int getCount() {
+        return isEmpty() ? 0 : getCount(root);
+    }
+
+    int getCount(const BinaryNode *node) {
+        if(node == nullptr)
+            return 0;
+        return 1 + getCount(node->getLeft()) + getCount(node->getRight());
+    }
+    int getHeight() { return isEmpty() ? 0 : getHeight(root); }
+
+    int getHeight(const BinaryNode *node) {
+        if(node == nullptr)
+            return 0;
+        int hLeft = getHeight(node->getLeft());
+        int hRight = getHeight(node->getRight());
+        return ((hLeft>hRight) ? hLeft : hRight) + 1;
+    }
+
+    int getLeafCount() {return isEmpty() ? 0 : getLeafCount(root); }
+    int getLeafCount(BinaryNode *node) {
+        if(node == nullptr)
+            return 0;
+        if(node->isLeaf())
+            return 1;
+        else
+            return getLeafCount(node->getLeft()) + getLeafCount(node->getRight());
+    }
 };
 
 
