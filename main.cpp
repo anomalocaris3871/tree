@@ -4,12 +4,17 @@
 int main(void)
 {
     BinaryTree tree;
-    BinaryNode *d = new BinaryNode('D', nullptr, nullptr);
+
+    BinaryNode *i = new BinaryNode('I', nullptr, nullptr);
+    BinaryNode *h = new BinaryNode('H', nullptr, nullptr);
+    BinaryNode *g = new BinaryNode('G', nullptr, nullptr);
+    BinaryNode *d = new BinaryNode('D', h, i);
     BinaryNode *e = new BinaryNode('E', nullptr, nullptr);
     BinaryNode *b = new BinaryNode('B', d, e);
     BinaryNode *f = new BinaryNode('F', nullptr, nullptr);
-    BinaryNode *c = new BinaryNode('C', f, nullptr);
+    BinaryNode *c = new BinaryNode('C', f, g);
     BinaryNode *a = new BinaryNode('A', b, c);
+
 
     tree.setRoot(a);
     tree.inorder();
@@ -20,7 +25,19 @@ int main(void)
     printf("the number of node = %d\n", tree.getCount());
     printf("the number of leaf = %d\n", tree.getLeafCount());
     printf("the number of height = %d\n", tree.getHeight());
+
+    if(tree.isFull())
+        printf("full binary tree\n");
+    else
+        printf("not full binary tree\n");
+
     printf("\n");
+
+
+
+
+
+
 
     ThreadedBinTree Thtree;
 

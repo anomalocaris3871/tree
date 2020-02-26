@@ -2,6 +2,7 @@
 #define BINARYTREE_H_INCLUDED
 
 #include "CircularQueue.h"
+#include "math.h"
 
 class BinaryTree {
     BinaryNode *root;
@@ -99,6 +100,34 @@ public:
             return 1;
         else
             return getLeafCount(node->getLeft()) + getLeafCount(node->getRight());
+    }
+
+    bool isFull() {
+        if(!isEmpty()) {
+            CircularQueue q;
+            q.enqueue(root);
+            while(!q.isEmpty()) {
+                BinaryNode *n = q.dequeue();
+                if(n->getLeft() == nullptr && n->getRight() != nullptr)
+                    return false;
+                else if(n->getLeft() != nullptr && n->getRight() == nullptr)
+                    return false;
+
+                if(n->getLeft())
+                    q.enqueue(n->getLeft());
+                if(n->getRight())
+                    q.enqueue(n->getRight());
+
+            }
+
+            if(pow(2,getHeight())-1 == double(getCount()))
+                return true;
+
+            else
+                false;
+
+        } else
+             return true;
     }
 };
 
