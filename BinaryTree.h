@@ -129,6 +129,23 @@ public:
         } else
              return true;
     }
+
+    int level(BinaryNode *root, BinaryNode *node, int lev)
+    {
+        if(root == nullptr)
+            return 0;
+        if(root == node)
+            return lev;
+
+        int left = level(root->getLeft(), node, lev + 1);
+        int right = level(root->getRight(), node, lev + 1);
+
+        if(left == 0)
+            return right;
+        else
+            return left;
+    }
+
 };
 
 

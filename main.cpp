@@ -5,8 +5,9 @@ int main(void)
 {
     BinaryTree tree;
 
+    BinaryNode *j = new BinaryNode('J', nullptr, nullptr);
     BinaryNode *i = new BinaryNode('I', nullptr, nullptr);
-    BinaryNode *h = new BinaryNode('H', nullptr, nullptr);
+    BinaryNode *h = new BinaryNode('H', j, nullptr);
     BinaryNode *g = new BinaryNode('G', nullptr, nullptr);
     BinaryNode *d = new BinaryNode('D', h, i);
     BinaryNode *e = new BinaryNode('E', nullptr, nullptr);
@@ -26,11 +27,13 @@ int main(void)
     printf("the number of leaf = %d\n", tree.getLeafCount());
     printf("the number of height = %d\n", tree.getHeight());
 
+    printf("This tree is ");
     if(tree.isFull())
         printf("full binary tree\n");
     else
         printf("not full binary tree\n");
 
+    printf("node %c\'s level is %d",'j', tree.level(a,j,1));
     printf("\n");
 
 

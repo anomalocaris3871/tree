@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1582719166 source:c:\tree\main.cpp
+1582720111 source:c:\tree\main.cpp
 	"BinaryTree.h"
 	"ThreadedBinTree.h"
 
-1582720044 c:\tree\binarytree.h
+1582720093 c:\tree\binarytree.h
 	"CircularQueue.h"
 	"math.h"
 
