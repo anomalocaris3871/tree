@@ -5,6 +5,7 @@
 #include "math.h"
 
 class BinaryTree {
+protected :
     BinaryNode *root;
 public:
     BinaryTree(): root(nullptr) {}
@@ -21,7 +22,7 @@ public:
         if(node != nullptr) {
             if(node->getLeft() != nullptr)
                 inorder(node->getLeft());
-            printf(" [%c] ", node->getData());
+            printf(" [%d] ", node->getData());
             if(node->getRight() !=nullptr)
                 inorder(node->getRight());
         }
@@ -34,7 +35,7 @@ public:
 
     void preorder(BinaryNode *node) const {
         if(node != nullptr) {
-            printf(" [%c] ", node->getData());
+            printf(" [%d] ", node->getData());
             if(node->getLeft() != nullptr)
                 preorder(node->getLeft());
             if(node->getRight() != nullptr)
@@ -53,7 +54,7 @@ public:
                 postorder(node->getLeft());
             if(node->getRight() != nullptr)
                 postorder(node->getRight());
-            printf(" [%c] ", node->getData());
+            printf(" [%d] ", node->getData());
         }
     }
     void levelorder() {
@@ -64,7 +65,7 @@ public:
             while( !q.isEmpty()) {
                 BinaryNode *n = q.dequeue();
                 if(n!= nullptr) {
-                    printf(" [%c] ", n->getData());
+                    printf(" [%d] ", n->getData());
                     q.enqueue(n->getLeft());
                     q.enqueue(n->getRight());
                 }

@@ -99,12 +99,12 @@ public:
         else {
             //succp -> Parents of the succeeding Nodes
             //succ -> Successor node: Explore the smallest node in the right subtree
-
             BinaryNode *succp = node;
             BinaryNode *succ = node->getRight();
+
             while(succ->getLeft() != nullptr) {
                 succp = succ;
-                succ = node->getLeft();
+                succ = succ->getLeft();
             }
 
             if(succp->getLeft() == succ)
