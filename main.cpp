@@ -1,4 +1,5 @@
 #include "BinaryTree.h"
+#include "BinSrchTree.h"
 #include "ThreadedBinTree.h"
 
 int main(void)
@@ -16,13 +17,13 @@ int main(void)
     BinaryNode *c = new BinaryNode('C', f, g);
     BinaryNode *a = new BinaryNode('A', b, c);
 
-
+    printf("BinaryTree\n");
     tree.setRoot(a);
     tree.inorder();
     tree.preorder();
     tree.postorder();
     tree.levelorder();
-    printf("\n");
+
     printf("the number of node = %d\n", tree.getCount());
     printf("the number of leaf = %d\n", tree.getLeafCount());
     printf("the number of height = %d\n", tree.getHeight());
@@ -38,9 +39,9 @@ int main(void)
 
 
 
+    printf("================================================================\n");
 
-
-
+    printf("ThreadBinaryTree\n\n");
 
     ThreadedBinTree Thtree;
 
@@ -59,5 +60,53 @@ int main(void)
     n4->setRight(n6);
 
     Thtree.threadedInorder();
+
+    printf("================================================================\n");
+
+    BinSrchTree bintree;
+
+    bintree.insert(new BinaryNode(35));
+    bintree.insert(new BinaryNode(18));
+    bintree.insert(new BinaryNode(7));
+    bintree.insert(new BinaryNode(26));
+    bintree.insert(new BinaryNode(12));
+    bintree.insert(new BinaryNode(3));
+    bintree.insert(new BinaryNode(68));
+    bintree.insert(new BinaryNode(22));
+    bintree.insert(new BinaryNode(30));
+    bintree.insert(new BinaryNode(99));
+
+    printf("BinarySearchTree\n\n");
+    printf("the number of node : %d\n", bintree.getCount());
+    printf("the number of leaf : %d\n", bintree.getLeafCount());
+    printf("the height of tree : %d\n", bintree.getHeight());
+
+    bintree.inorder();
+    bintree.preorder();
+    bintree.postorder();
+    bintree.levelorder();
+
+    bintree.search(26);
+    bintree.search(25);
+
+    printf("\ncase 1 ==> delete of node 3\n");
+    bintree.remove(3);
+    bintree.levelorder();
+
+    printf("\ncase 2 ==> delete of node 68\n");
+    bintree.remove(68);
+    bintree.levelorder();
+
+    printf("\ncase 3 ==> delete of node 18\n");
+    bintree.remove(18);
+    bintree.levelorder();
+
+    printf("\ncase 3 ==> delete of node 35(delete of root node)\n");
+    bintree.remove(35);
+    bintree.levelorder();
+
+    printf("the number of node : %d\n", bintree.getCount());
+    printf("the number of leaf : %d\n", bintree.getLeafCount());
+    printf("the height of tree : %d\n", bintree.getHeight());
     return 0;
 }
