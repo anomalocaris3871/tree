@@ -42,6 +42,8 @@ int main(void)
         printf("this tree is unbalanced\n");
     printf("\n");
 
+    printf("the path length of tree : %d\n", tree.isBalanced());
+
 
 
     printf("================================================================\n");

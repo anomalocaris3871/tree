@@ -174,6 +174,21 @@ public:
         }
     }
 
+    int pathLength() {
+        int result = pathLength(root);
+        return result;
+    }
+
+    int pathLength(BinaryNode *node) {
+        if(node == nullptr)
+            return 0;
+        else
+            return 1;
+        int lPath = pathLength(node->getLeft());
+        int rPath = pathLength(node->getRight());
+
+        return lPath + rPath;
+    }
 };
 
 
