@@ -6,15 +6,15 @@ int main(void)
 {
     BinaryTree tree;
 
-    BinaryNode *j = new BinaryNode('J', nullptr, nullptr);
+    //BinaryNode *j = new BinaryNode('J', nullptr, nullptr);
     BinaryNode *i = new BinaryNode('I', nullptr, nullptr);
-    BinaryNode *h = new BinaryNode('H', j, nullptr);
-    BinaryNode *g = new BinaryNode('G', nullptr, nullptr);
-    BinaryNode *d = new BinaryNode('D', h, i);
+    //BinaryNode *h = new BinaryNode('H', nullptr, nullptr);
+    //BinaryNode *g = new BinaryNode('G', nullptr, nullptr);
+    BinaryNode *d = new BinaryNode('D', nullptr, i);
     BinaryNode *e = new BinaryNode('E', nullptr, nullptr);
     BinaryNode *b = new BinaryNode('B', d, e);
-    BinaryNode *f = new BinaryNode('F', nullptr, nullptr);
-    BinaryNode *c = new BinaryNode('C', f, g);
+    //BinaryNode *f = new BinaryNode('F', nullptr, nullptr);
+    BinaryNode *c = new BinaryNode('C', nullptr, nullptr);
     BinaryNode *a = new BinaryNode('A', b, c);
 
     printf("BinaryTree\n");
@@ -34,7 +34,12 @@ int main(void)
     else
         printf("not full binary tree\n");
 
-    printf("node %c\'s level is %d",'j', tree.level(a,j,1));
+    printf("node %c\'s level is %d\n",'b', tree.level(a,b,1));
+
+    if(tree.isBalanced())
+        printf("this tree is balnced\n");
+    else
+        printf("this tree is unbalanced\n");
     printf("\n");
 
 

@@ -3,6 +3,7 @@
 
 #include "CircularQueue.h"
 #include "math.h"
+#include <bits/stdc++.h>
 
 class BinaryTree {
 protected :
@@ -145,6 +146,32 @@ public:
             return right;
         else
             return left;
+    }
+
+    bool isBalanced() {
+        vector<int> leafNodes;
+        vector<int> &refLeafNode = leafNodes;
+        getLeafLevel(root, refLeafNode);
+        for(int i=0;i<leafNodes.size()-1;++i) {
+            for(int j=1;j<leafNodes.size();++j)
+            if((leafNodes[i] - leafNodes[j]) >= 2 || (leafNodes[j] - leafNodes[i]) >= 2)
+                return false;
+        }
+        return true;
+    }
+
+    void getLeafLevel(BinaryNode *node, vector<int> &refLeafNode) {
+        if(node == nullptr)
+            return;
+
+        if(node->isLeaf()){
+            refLeafNode.push_back(level(root, node, 1));
+        }
+
+        else {
+            getLeafLevel(node->getLeft(), refLeafNode);
+            getLeafLevel(node->getRight(),refLeafNode);
+        }
     }
 
 };
