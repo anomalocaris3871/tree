@@ -175,19 +175,36 @@ public:
     }
 
     int pathLength() {
-        int result = pathLength(root);
+        int result = pathLength(root, 0);
         return result;
     }
 
-    int pathLength(BinaryNode *node) {
+    int pathLength(BinaryNode *node, int length) {
         if(node == nullptr)
             return 0;
-        else
-            return 1;
-        int lPath = pathLength(node->getLeft());
-        int rPath = pathLength(node->getRight());
+        if(node->isLeaf())
+            return length;
 
-        return lPath + rPath;
+        return length + pathLength(node->getLeft(), length+1) + pathLength(node->getRight(), length+1);
+    }
+
+    void reverse() {
+        reverse(root);
+    }
+
+    void reverse(BinaryNode *node) {
+        if(node == nullptr)
+            return;
+        if(node->isLeaf())
+            return;
+
+        BinaryNode *temp = node->getLeft();
+        node->setLeft(node->getRight());
+        node->setRight(temp);
+
+        reverse(node->getLeft());
+        reverse(node->getRight());
+
     }
 };
 

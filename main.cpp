@@ -13,8 +13,8 @@ int main(void)
     BinaryNode *d = new BinaryNode('D', nullptr, i);
     BinaryNode *e = new BinaryNode('E', nullptr, nullptr);
     BinaryNode *b = new BinaryNode('B', d, e);
-    //BinaryNode *f = new BinaryNode('F', nullptr, nullptr);
-    BinaryNode *c = new BinaryNode('C', nullptr, nullptr);
+    BinaryNode *f = new BinaryNode('F', nullptr, nullptr);
+    BinaryNode *c = new BinaryNode('C', f, nullptr);
     BinaryNode *a = new BinaryNode('A', b, c);
 
     printf("BinaryTree\n");
@@ -42,8 +42,17 @@ int main(void)
         printf("this tree is unbalanced\n");
     printf("\n");
 
-    printf("the path length of tree : %d\n", tree.isBalanced());
+    printf("the path length of tree : %d\n", tree.pathLength());
 
+    tree.reverse();
+
+
+    printf("BinaryTree\n");
+    tree.setRoot(a);
+    tree.inorder();
+    tree.preorder();
+    tree.postorder();
+    tree.levelorder();
 
 
     printf("================================================================\n");
