@@ -1,3 +1,3 @@
 # tree
 
-This repository is a tree that I've implemented.
+This repository is a Data Structure Tree that I've implemented.
